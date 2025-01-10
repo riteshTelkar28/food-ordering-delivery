@@ -23,7 +23,7 @@ export const userRegistrationController = (request,response)=>{
         }
     
         // console.log("userObj ",userObj);
-        const mailData = `hello ${email}.This is an verification mail by Food Delivery.Please click the below link for verification <br> <a href='http://localhost:3000/user/verifyEmail?email=${email}'>click here</a>`
+        const mailData = `hello ${email}.This is an verification mail by Food Delivery.Please click the below link for verification <br> <a href='https://food-ordering-delivery.onrender.com/user/verifyEmail?email=${email}'>click here</a>`
     
         mailer.mailer(mailData,email,async(info)=>{
             try{
@@ -95,7 +95,7 @@ export const userLoginController = async(request,response)=>{
 export const userUpdatePasswordController = (request,response)=>{
     try {
         const email = request.body.email;
-        const mailData = `hello ${email}.This is an mail for password updation.Please click the below link <br> <a href='http://localhost:3000/user/setPassword?email=${email}'>click here</a>`
+        const mailData = `hello ${email}.This is an mail for password updation.Please click the below link <br> <a href='https://food-ordering-delivery.onrender.com/user/setPassword?email=${email}'>click here</a>`
     
         mailer.mailer(mailData,email,async(info)=>{
             try{
