@@ -1,0 +1,74 @@
+<%- include('./homeHeader.ejs') %>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow">
+          <div class="card-header bg-primary text-white text-center">
+            <h3>User Updation Form</h3>
+          </div>
+          <div class="card-body">
+            <form action="/admin/updateUser" method="POST">
+              <!-- Name -->
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" value="<%=userObj.name%>" required>
+              </div>
+
+              <!-- Email -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" value="<%=userObj.email%>" required>
+              </div>
+
+              <!-- Password -->
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control" value="<%=userObj.password%>" required>
+              </div>
+
+              <!-- Phone Number -->
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" value="<%=userObj.phoneNumber%>" required>
+              </div>
+
+              <!-- Vegetarian/Non-Vegetarian -->
+              <div class="mb-3">
+                <label class="form-label">Dietary Preference</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" value="" id="vegetarian" name="diet" value="Vegetarian" required>
+                  <label class="form-check-label" for="vegetarian">Vegetarian</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="nonVegetarian" name="diet" value="Non-Vegetarian" required>
+                  <label class="form-check-label" for="nonVegetarian">Non-Vegetarian</label>
+                </div>
+              </div>
+
+              <!-- Age -->
+              <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" id="age" name="age" class="form-control" value="<%=userObj.age%>" required>
+              </div>
+
+              <!-- Address -->
+              <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" id="address" name="address" class="form-control" rows="3" value="<%=userObj.address%>" required></input>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/registration.js"></script>
+

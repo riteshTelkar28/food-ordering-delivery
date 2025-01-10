@@ -1,0 +1,185 @@
+<%- include('./userHomeHeader.ejs') %>
+  <!-- Page Header -->
+  <header class="bg-primary text-white text-center py-1 ">
+    <div class="container">
+      <h2>Browse Food</h2>
+      <p>Explore our delicious food options!</p>
+    </div>
+  </header>
+  <!-- <li class="nav-item">
+    <a class="nav-link" href="/user/cart">
+      Cart <span id="cartCount" class="badge bg-primary">
+        <//%= cartCount || 0 %>
+      </span>
+    </a>
+  </li> -->
+  <!-- <a class="nav-item" href="/user/cart">
+      <i class="bi bi-cart"></i><span id="cartCount" class="badge bg-primary">
+        <//%= cartCount || 0  %>
+      </span>
+  </a> -->
+  <a class="nav-item" href="/user/cart" style="float: right; margin: 5px; padding: 4px;">
+    <img src="/images/icons8-cart.gif" alt=""><span class="badge bg-primary"><%=cartCount%></span>
+  </a>
+  <!-- Food Categories Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Food Card 1 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="/images/cheese-burger.jpeg" class="card-img-top" alt="Cheese Burger">
+            <div class="card-body">
+              <h5 class="card-title">Cheese Burger</h5>
+              <p class="card-text">Delicious cheesy burger with fresh ingredients.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-primary fw-bold">$10</span>
+                <form action="/user/cart/add" method="POST">
+                  <input type="hidden" name="userId" value="123"> <!-- User ID -->
+                  <input type="hidden" name="name" value="Cheese Burger">
+                  <input type="hidden" name="price" value="10">
+                  <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Food Card 2 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="/images/peproni pizza.jpeg" class="card-img-top" alt="Pepperoni Pizza">
+            <div class="card-body">
+              <h5 class="card-title">Pepperoni Pizza</h5>
+              <p class="card-text">Crispy crust topped with pepperoni and mozzarella.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-primary fw-bold">$12</span>
+                <form action="/user/cart/add" method="POST">
+                  <input type="hidden" name="userId" value="456"> <!-- User ID -->
+                  <input type="hidden" name="name" value="Pepperoni Pizza">
+                  <input type="hidden" name="price" value="10">
+                  <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Food Card 3 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="/images/fresh-salad.jpeg" class="card-img-top" alt="Fresh Salad">
+            <div class="card-body">
+              <h5 class="card-title">Fresh Salad</h5>
+              <p class="card-text">Healthy and refreshing salad with fresh veggies.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-primary fw-bold">$8</span>
+                <form action="/user/cart/add" method="POST">
+                  <input type="hidden" name="userId" value="789"> <!-- User ID -->
+                  <input type="hidden" name="name" value="Fresh Salad">
+                  <input type="hidden" name="price" value="10">
+                  <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+              <img src="/images/cold-coffee.jpeg" class="card-img-top" alt="cold-coffee">
+              <div class="card-body">
+                <h5 class="card-title">Cold Coffee</h5>
+                <p class="card-text">For you the best cold coffee </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="text-primary fw-bold">$8</span>
+                  <form action="/user/cart/add" method="POST">
+                    <input type="hidden" name="userId" value="321"> <!-- User ID -->
+                    <input type="hidden" name="name" value="Cold Coffee">
+                    <input type="hidden" name="price" value="10">
+                    <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <img src="/images/momos.jpeg" class="card-img-top" alt="momos">
+              <div class="card-body">
+                <h5 class="card-title">Momos</h5>
+                <p class="card-text">Steamed Momos that will make your day</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="text-primary fw-bold">$8</span>
+                  <form action="/user/cart/add" method="POST">
+                    <input type="hidden" name="userId" value="654"> <!-- User ID -->
+                    <input type="hidden" name="name" value="Momos">
+                    <input type="hidden" name="price" value="10">
+                    <button type="submit" class="btn btn-success btn-sm">Add to Cart</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <img src="/images/pizza.jpeg" class="card-img-top" alt="pizza">
+              <div class="card-body">
+                <h5 class="card-title">Pizza</h5>
+                <p class="card-text">Have a slice of pizza</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="text-primary fw-bold">$8</span>
+                  <button class="btn btn-success btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <img src="/images/thali.jpeg" class="card-img-top" alt="thali">
+              <div class="card-body">
+                <h5 class="card-title">Thali for you</h5>
+                <p class="card-text">Just enjoy a bunch of good taste</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="text-primary fw-bold">$8</span>
+                  <button class="btn btn-success btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <img src="/images/thali.jpeg" class="card-img-top" alt="thali">
+              <div class="card-body">
+                <h5 class="card-title">Thali for you</h5>
+                <p class="card-text">Just enjoy a bunch of good taste</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="text-primary fw-bold">$8</span>
+                  <button class="btn btn-success btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <img src="/images/thali.jpeg" class="card-img-top" alt="thali">
+              <div class="card-body">
+                <h5 class="card-title">Thali for you</h5>
+                <p class="card-text">Just enjoy a bunch of good taste</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="text-primary fw-bold">$8</span>
+                  <button class="btn btn-success btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- Add more cards for other food items -->
+      </div>
+    </div>
+  </section>

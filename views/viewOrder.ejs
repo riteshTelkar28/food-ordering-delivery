@@ -1,0 +1,31 @@
+<%- include('./userHomeHeader.ejs') %>
+  <div class="container py-5">
+    <h1>Your Orders</h1>
+    <% if (orders.length>0) { %>
+        <div class="container">
+            <% orders.forEach((order)=>{%>
+                <div class="container-fluid " style="margin-top: 30px;">
+                    <ul class="list-group">
+                        <li class="list-group-item">Order Name : <span class="orderName"><%= order.name%></span></li>
+                        <li class="list-group-item">Price : <span class="orderDetail"><%= order.price%></span></li>
+                        <li class="list-group-item">Quantity : <span class="orderDetail"><%= order.quantity%></span></li>
+                        <li class="list-group-item">Date : <span class="orderDetail"><%= order.orderDate.toISOString().split('T')[0]%></span> </li>
+                        <li class="list-group-item">Total : <span class="orderDetail"><%= order.totalAmount%></span> </li>
+                        <li class="list-group-item">Order Status : <span style="color: green;"><%=order.status%></span></li>
+                        <% if (order.status=="pending") { %>
+                            <a href="/user/deleteOrder?userId=<%=order.userId%>" class="deleteOrder">Delete Order</a>                            
+                        <% }else{ %>
+                            <li class="list-group-item">Delivered by : <span class="orderDetail">after 3 days of ordered date</span></li>
+                        <%}%>
+
+                    </ul>
+    
+                </div>
+            <%}) %>
+        </div>
+    <% }else{ %>
+        <h1>No Orders found</h1>
+    <%}%>
+  </div>
+</body>
+</html>
