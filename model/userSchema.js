@@ -4,7 +4,8 @@ import url from "../database/connection.js";
 mongoose.connect(url,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
-    serverSelectionTimeoutMS:5000
+    serverSelectionTimeoutMS:5000,
+    tls:true
 });
 
 const userSchema = mongoose.Schema({
