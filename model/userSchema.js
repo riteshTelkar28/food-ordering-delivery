@@ -3,7 +3,7 @@ import url from "../database/connection.js";
 
 mongoose.connect(url,{
     useNewUrlParser:true,
-    userUnifiedTopology:true,
+    useUnifiedTopology:true,
     serverSelectionTimeoutMS:5000
 });
 
