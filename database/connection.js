@@ -1,6 +1,8 @@
 // const url = "mongodb://127.0.0.1:27017/FoodDeliveryAndManagementSystem";
 // export default url;
+import dotenv from 'dotenv';
+dotenv.config();
 
-const url = "mongodb+srv://riteshtelkar28:1jprjRJQSquYTpxn@cluster0.4fwto.mongodb.net/merndb?retryWrites=true&w=majority&appName=Cluster0";
+const url = process.env.MONGO_URL;
 
 export default url;

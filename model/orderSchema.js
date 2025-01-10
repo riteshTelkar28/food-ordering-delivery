@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 import url from "../database/connection.js";
 
-mongoose.connect(url);
+mongoose.connect(url,{
+    useNewUrlParser:true,
+    userUnifiedTopology:true,
+    serverSelectionTimeoutMS:5000
+});
 
 const orderSchema = mongoose.Schema({
     email:{
