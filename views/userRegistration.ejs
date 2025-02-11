@@ -71,5 +71,72 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/js/registration.js"></script>
-
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("form");
+  
+      form.addEventListener("submit", function (event) {
+        let isValid = true;
+        let messages = [];
+  
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const phoneNumber = document.getElementById("phoneNumber").value.trim();
+        const age = document.getElementById("age").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const dietChecked = document.querySelector('input[name="diet"]:checked');
+  
+        // Name validation
+        if (name.length < 3) {
+          messages.push("Full Name must be at least 3 characters.");
+          isValid = false;
+        }
+  
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          messages.push("Enter a valid email address.");
+          isValid = false;
+        }
+  
+        // Password validation (at least 8 chars, one uppercase, one lowercase, one digit, one special character)
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(password)) {
+          messages.push("Password must be at least 8 characters, include one uppercase letter, one lowercase letter, one number, and one special character.");
+          isValid = false;
+        }
+  
+        // Phone number validation (must be 10 digits and start with 6-9)
+        const phoneRegex = /^[6-9]\d{9}$/;
+        if (!phoneRegex.test(phoneNumber)) {
+          messages.push("Enter a valid 10-digit phone number starting with 6-9.");
+          isValid = false;
+        }
+  
+        // Age validation
+        if (isNaN(age) || age < 18) {
+          messages.push("Age must be 18 or older.");
+          isValid = false;
+        }
+  
+        // Address validation
+        if (address.length < 10) {
+          messages.push("Address must be at least 10 characters.");
+          isValid = false;
+        }
+  
+        // Dietary preference validation
+        if (!dietChecked) {
+          messages.push("Please select a dietary preference.");
+          isValid = false;
+        }
+  
+        // Display error messages and prevent form submission if invalid
+        if (!isValid) {
+          event.preventDefault();
+          alert(messages.join("\n"));
+        }
+      });
+    });
+  </script>

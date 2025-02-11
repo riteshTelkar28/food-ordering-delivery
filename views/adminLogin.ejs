@@ -49,6 +49,35 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/js/login.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("form");
+  
+      form.addEventListener("submit", function (event) {
+        let isValid = true;
+        let messages = [];
+  
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+  
+        // Check if fields are empty
+        if (email === "") {
+          messages.push("Email field cannot be empty.");
+          isValid = false;
+        }
+        if (password === "") {
+          messages.push("Password field cannot be empty.");
+          isValid = false;
+        }
+  
+        // Display error messages and prevent form submission if invalid
+        if (!isValid) {
+          event.preventDefault();
+          alert(messages.join("\n"));
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
